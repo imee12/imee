@@ -27,6 +27,7 @@ public class UserEntity {
 
 	protected ObjectId id = null;
 	protected String first_name = "";
+	protected String last_name = "";
 	protected String email = "";
 	protected String password = "";
 	protected RoleType role = null;
@@ -73,6 +74,7 @@ public class UserEntity {
 				BasicDBObject _doc = (BasicDBObject)cursor.next();
 				this.id = _doc.getObjectId("_id");
 				this.first_name = _doc.getString("first_name");
+				this.last_name = _doc.getString("last_name");
 				this.email = _doc.getString("email");
 				this.password = _doc.getString("password");
 				if(_doc.get("role") == null) {
@@ -96,6 +98,7 @@ public class UserEntity {
 
 		BasicDBObject _doc = new BasicDBObject();
 		_doc.append("first_name", this.first_name);
+		_doc.append("last_name", this.last_name);
 		_doc.append("email", this.email);
 		_doc.append("password", this.password);
 		if(this.role == null) {
@@ -137,6 +140,7 @@ public class UserEntity {
 
 			BasicDBObject _set = new BasicDBObject();
 			if(this._dirty_attributes.contains("first_name")) { _set.append("first_name",this.first_name); }
+			if(this._dirty_attributes.contains("last_name")) { _set.append("last_name",this.last_name); }
 			if(this._dirty_attributes.contains("email")) { _set.append("email",this.email); }
 			if(this._dirty_attributes.contains("password")) { _set.append("password",this.password); }
 			if(this._dirty_attributes.contains("role")) {
@@ -247,6 +251,7 @@ public class UserEntity {
 	public DBObject document() {
 		BasicDBObject _obj = new BasicDBObject();
 		_obj.append("first_name",this.first_name);
+		_obj.append("last_name",this.last_name);
 		_obj.append("email",this.email);
 		_obj.append("password",this.password);
 		if(role == null) {
@@ -294,6 +299,18 @@ public class UserEntity {
 		if(first_name != null && first_name.length() >= 1 && first_name.length() <= 30) {
 			this.first_name = first_name;
 			this._dirty_attributes.add("first_name");
+			this._dirty = true;
+
+			if(!this._atomic) {
+				this.update();
+			}
+		}
+	}
+
+	public void setLastName(String last_name) {
+		if(last_name != null && last_name.length() >= 1 && last_name.length() <= 30) {
+			this.last_name = last_name;
+			this._dirty_attributes.add("last_name");
 			this._dirty = true;
 
 			if(!this._atomic) {
@@ -365,6 +382,10 @@ public class UserEntity {
 
 	public String getFirstName() {
 		return this.first_name;
+	}
+
+	public String getLastName() {
+		return this.last_name;
 	}
 
 	public String getEmail() {
