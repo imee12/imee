@@ -9,6 +9,10 @@
 		<Attribute name="First Name" prevname="" persistent="true" type="TEXT" minsize="1" maxsize="30" comment="The user's email."
 					characterset="utf-8" required="true" default="" encryption="" regex="" />
 					
+		<!-- Last Name -->
+		<Attribute name="Last Name" prevname="" persistent="true" type="TEXT" minsize="1" maxsize="30" comment="The user's email."
+					characterset="utf-8" required="true" default="" encryption="" regex="" />
+					
 		<!-- EMail -->
 		<Attribute name="EMail" prevname="" persistent="true" type="TEXT" minsize="1" maxsize="30" comment="The user's email."
 					characterset="utf-8" required="true" default="" encryption="" regex="E-Mail" />
