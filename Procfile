@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/imee -Dhttp.port=${PORT} -Dconfig.file=${CONFIG_RESOURCE}
