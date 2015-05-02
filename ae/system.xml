@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SystemModel>
+
+<DataSource name="MongoDB2"
+			type="MongoDB2"
+			version=""
+			host="localhost"
+			schema="imee"
+			port="27017"
+			username="imee"
+			password="password" />
+
+<!-- Java -->
+<Project	name="imee" >
+	
+	<Domain name="Imee"
+			src="ae/model.xml"
+			interface="ae/interface.xml"
+			datasource="MongoDB2"
+			language="Java"
+			framework="Play2"
+			orm=""
+			namespace="" />
+
+</Project>
+
+</SystemModel>
